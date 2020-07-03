@@ -14,22 +14,22 @@ export const Main = styled.main`
     align-items: center;
     justify-content: space-between;
     padding: 0 8px 0 8px;
-  }
-`;
 
-export const ContainerLogo = styled.a`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
 
-  img {
-    width: 38px;
-  }
+      img {
+        width: 38px;
+      }
 
-  p {
-    color: #fff;
-    font-size: 30px;
-    margin-left: 12px;
+      p {
+        color: #fff;
+        font-size: 30px;
+        margin-left: 12px;
+      }
+    }
   }
 `;
 
