@@ -3,11 +3,16 @@ import React from 'react';
 import {} from './styles';
 
 import Header from '../../components/Header';
+import Clocks from '../../components/Clocks';
 
 const Dashboard: React.FC = () => {
 
   return (
-    <h1>Dashboard!!!</h1>
+    <>
+      <Header />
+      <Clocks />
+      <h1>Dashboard!!!</h1>
+    </>
   );
 }
 
