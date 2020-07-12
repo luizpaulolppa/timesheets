@@ -5,7 +5,7 @@ export const ContainerClocks = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #5636D3;
+  background-color: #312f38;
   height: 100px;
 `;
 
@@ -78,7 +78,7 @@ export const ContainerEntriesMenu = styled.div`
     width: 100%;
 
     button {
-      background-color: #5636D3;
+      background-color: #FF872C;
       border: 0;
       padding: 8px;
       border-radius: 6px;
@@ -86,7 +86,7 @@ export const ContainerEntriesMenu = styled.div`
       transition: background-color 0.2s;
 
       &:hover {
-        background: ${shade(0.2, '#5636D3')};
+        background: ${shade(0.2, '#FF872C')};
       }
     }
 
@@ -105,7 +105,7 @@ export const ContainerEntriesMenu = styled.div`
         border: 0;
         padding: 8px;
         border-radius: 6px;
-        color: #5636D3;
+        color: #312f38;
         transition: background-color 0.2s;
         margin-right: 6px;
         margin-left: 6px;

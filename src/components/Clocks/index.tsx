@@ -53,9 +53,9 @@ const Clocks: React.FC = () => {
       <ContainerEntriesMenu>
         <div>
           <div className="box-navigation-week">
-            <FiArrowLeft color="#5636D3" />
+            <FiArrowLeft color="#312f38" />
             <a href="/">Current week</a>
-            <FiArrowRight color="#5636D3" />
+            <FiArrowRight color="#312f38" />
           </div>
           <p>Week total: 0.00</p>
           <button>New time entry</button>

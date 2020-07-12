@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Main = styled.main`
   height: 80px;
-  background-color: #5636D3;
+  background-color: #312f38;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ export const ContainerMenus = styled.div`
     font-size: 16px;
     line-height: 24px;
     padding-bottom: 8px;
-    border-bottom: 2px solid #5636D3;
+    border-bottom: 2px solid #312f38;
   }
 
   a:hover {

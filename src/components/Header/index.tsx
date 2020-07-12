@@ -15,8 +15,10 @@ const Header: React.FC = () => (
 
       <ContainerMenus>
         <a href="/" className="selected">Timesheet</a>
-        <a href="/">Projects</a>
         <a href="/">Reports</a>
+        <a href="/">Customers</a>
+        <a href="/">Projects</a>
+        <a href="/">Activities</a>
         <a href="/">Me</a>
         <a href="/">Logout</a>
       </ContainerMenus>
