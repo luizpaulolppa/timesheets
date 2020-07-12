@@ -20,7 +20,7 @@ const Header: React.FC = () => (
         <a href="/">Projects</a>
         <a href="/">Activities</a>
         <a href="/">Me</a>
-        <a href="/">Logout</a>
+        <Link to="/">Logout</Link>
       </ContainerMenus>
     </section>
   </Main>
