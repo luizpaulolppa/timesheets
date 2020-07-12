@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {} from './styles';
+import { ContainerTimeSheets, ContainerEntries } from './styles';
 
 import Header from '../../components/Header';
 import Clocks from '../../components/Clocks';
+import EntryCard from '../../components/EntryCard';
 
 const Dashboard: React.FC = () => {
 
@@ -11,7 +12,25 @@ const Dashboard: React.FC = () => {
     <>
       <Header />
       <Clocks />
-      <h1>Dashboard!!!</h1>
+      <ContainerTimeSheets>
+        <ContainerEntries>
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+          <EntryCard />
+        </ContainerEntries>
+      </ContainerTimeSheets>
     </>
   );
 }

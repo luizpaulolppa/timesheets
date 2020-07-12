@@ -1,11 +1,13 @@
 import React from 'react';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
 import {
   ContainerClocks,
   Time,
   NameOfTheWeek,
   NumOfTheMonth,
-  AmountOfTimeOfDay
+  AmountOfTimeOfDay,
+  ContainerEntriesMenu
 } from './styles';
 
 interface DayOfWeek {
@@ -25,18 +27,41 @@ const Clocks: React.FC = () => {
     { weekName: 'Saturday', monthNumber: 13, amountOfTimeOfday: '0.00' },
   ];
 
+  function checkWeekends(dayWeek: DayOfWeek) {
+    return ['Sunday', 'Saturday'].includes(dayWeek.weekName) ? 'inative' : '';
+  }
+
+  function checkDay(dayWeek: DayOfWeek) {
+    return dayWeek.weekName === 'Friday' ? 'active' : '';
+  }
+
   return (
-    <ContainerClocks>
-      {daysOfWeek.map(dayWeek => (
-        <Time key={dayWeek.monthNumber}>
-          <div>
-            <NameOfTheWeek className="day-of-week">{dayWeek.weekName}</NameOfTheWeek>
-            <NumOfTheMonth className="num-of-month">{dayWeek.monthNumber}</NumOfTheMonth>
-            <AmountOfTimeOfDay className="timestamp">{dayWeek.amountOfTimeOfday}</AmountOfTimeOfDay>
+    <>
+      <ContainerClocks>
+        {daysOfWeek.map(dayWeek => (
+          <Time 
+            key={dayWeek.monthNumber} 
+            className={`${checkWeekends(dayWeek)} ${checkDay(dayWeek)}`}>
+            <div>
+              <NameOfTheWeek className="day-of-week">{dayWeek.weekName}</NameOfTheWeek>
+              <NumOfTheMonth className="num-of-month">{dayWeek.monthNumber}</NumOfTheMonth>
+              <AmountOfTimeOfDay className="timestamp">{dayWeek.amountOfTimeOfday}</AmountOfTimeOfDay>
+            </div>
+          </Time>
+        ))}
+      </ContainerClocks>
+      <ContainerEntriesMenu>
+        <div>
+          <div className="box-navigation-week">
+            <FiArrowLeft color="#5636D3" />
+            <a href="/">Current week</a>
+            <FiArrowRight color="#5636D3" />
           </div>
-        </Time>
-      ))}
-    </ContainerClocks>
+          <p>Week total: 0.00</p>
+          <button>New time entry</button>
+        </div>
+      </ContainerEntriesMenu>
+    </>
   )
 };
 
