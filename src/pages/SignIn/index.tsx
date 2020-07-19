@@ -1,6 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import api from '../../services/api';
-import { FiLogIn, FiArrowLeft, FiLoader } from 'react-icons/fi';
+import { FiLogIn, FiArrowLeft } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
@@ -31,7 +31,7 @@ const SignIn: React.FC<SignInProps> = ({ action }: SignInProps) => {
     if (!name || !email || !password || !repeatPassword) {
       setError('Preencha todos os campos.');
       return;
-    } else if (password != repeatPassword) {
+    } else if (password !== repeatPassword) {
       setError('As senhas não coincidem.');
       return;
     } else {
