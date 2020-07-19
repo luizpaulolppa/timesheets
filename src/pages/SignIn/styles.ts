@@ -70,6 +70,20 @@ export const Content = styled.div`
         color: ${shade(0.2, '#F4EDE8')}
       }
     }
+
+    img {
+      max-width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .alert-error {
+      padding: 16px;
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      border-radius: .25rem;
+      margin-bottom: 6px;
+    }
   }
 
   > a {
@@ -96,4 +110,8 @@ export const Background = styled.div`
   flex: 1;
   background: url(${signInBackgroundImg}) no-repeat center;
   background-size: cover;
+`;
+
+export const ContainerSuccess = styled.div`
+  height: 50px;
 `;
