@@ -57,6 +57,11 @@ export const Content = styled.div`
       &:hover {
         background: ${shade(0.2, '#ff9000')}
       }
+
+      img {
+        width: 30px;
+        margin: 0;
+      }
     }
 
     a {

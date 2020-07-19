@@ -1,9 +1,10 @@
 import React, { useState, FormEvent } from 'react';
 import api from '../../services/api';
-import { FiLogIn, FiArrowLeft } from 'react-icons/fi';
+import { FiLogIn, FiArrowLeft, FiLoader } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 
 import logo from '../../assets/logo.png';
+import loader from '../../assets/loader.svg';
 import successImg from '../../assets/success.svg';
 import { Container, Content, Background } from './styles';
 
@@ -20,10 +21,12 @@ const SignIn: React.FC<SignInProps> = ({ action }: SignInProps) => {
   const [repeatPassword, setRepeatPassword] = useState('');
 
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function handleSaveUser(event: FormEvent) {
     event.preventDefault();
+
+    if (loading) return;
 
     if (!name || !email || !password || !repeatPassword) {
       setError('Preencha todos os campos.');
@@ -36,9 +39,12 @@ const SignIn: React.FC<SignInProps> = ({ action }: SignInProps) => {
     }
 
     try {
+      setLoading(true);
       await api.post('/users', { name, email, password });
       history.push('/success-new-account')
-    } catch(ex) {
+      setLoading(false);
+    } catch (ex) {
+      setLoading(false);
       setError('Não foi possivel criar o usuário, tente novamente mais tarde.');
     }
   }
@@ -89,7 +95,9 @@ const SignIn: React.FC<SignInProps> = ({ action }: SignInProps) => {
         value={repeatPassword}
         onChange={(event) => setRepeatPassword(event.target.value)} />
 
-      <button type="submit">Criar</button>
+      <button type="submit">
+        {loading ? <img src={loader} alt="GoBarber" /> : 'Criar'}
+      </button>
     </form>
   );
 
@@ -109,7 +117,7 @@ const SignIn: React.FC<SignInProps> = ({ action }: SignInProps) => {
 
       <img src={successImg} alt="Success" />
 
-      <p>Agora só precisamos confirmar seu e-mail. <br/>Em poucos minutos 
+      <p>Agora só precisamos confirmar seu e-mail. <br />Em poucos minutos
         enviaremos um e-mail com link de confirmação e poderá acessar a plataforma.</p>
     </form>
   );
