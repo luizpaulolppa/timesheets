@@ -49,18 +49,47 @@ const SignIn: React.FC<SignInProps> = ({ action }: SignInProps) => {
     }
   }
 
-  function handleSignIn() {
-    history.push('/dashboard')
+  async function handleSignIn(event: FormEvent) {
+    event.preventDefault();
+
+    if (!email || !password) {
+      setError('Preencha todos os campos.');
+      return;
+    } else {
+      setError('');
+    }
+
+    try {
+      setLoading(true);
+      const response = await api.post('/sessions', { email, password });
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      setLoading(false);
+      history.push('/dashboard')
+    } catch (ex) {
+      setLoading(false);
+      setError('Usuário ou senha incorredos.');
+    }
   }
 
   const formSignIn = () => (
-    <form>
+    <form onSubmit={handleSignIn}>
       <h1>Faça seu logon</h1>
 
-      <input type="text" placeholder="E-mail" />
-      <input type="password" placeholder="Senha" />
+      {error && <p className="alert-error">{error}</p>}
 
-      <button onClick={() => handleSignIn()}>Entrar</button>
+      <input 
+        type="text" 
+        placeholder="E-mail"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)} />
+      <input 
+        type="password" 
+        placeholder="Senha"
+        value={password}
+        onChange={(event) => setPassword(event.target.value)} />
+
+      <button type="submit">Entrar</button>
 
       <Link to="/forgot-password">Esqueci minha senha</Link>
     </form>
